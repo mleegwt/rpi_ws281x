@@ -6,3 +6,6 @@ newtest
 *.o
 *.a
 *.swp
+_*
+.gradle
+build

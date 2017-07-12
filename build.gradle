@@ -1,0 +1,31 @@
+buildscript {
+	repositories {
+		mavenLocal()
+		mavenCentral()
+	}
+
+	dependencies {
+		classpath "org.anarres.gradle:gradle-jnaerator-plugin:1.0.2-SNAPSHOT"
+	        classpath "com.nativelibs4java:jnaerator:0.12"	
+	}
+}
+
+apply plugin: 'org.anarres.jnaerator'
+
+repositories {
+	mavenLocal()
+	mavenCentral()
+}
+
+dependencies {
+		compile 'com.nativelibs4java:jnaerator-runtime:0.12'
+		compile 'net.java.dev.jna:jna:4.1.0'
+		compile 'com.google.guava:guava:18.0'
+		testCompile "org.slf4j:slf4j-api:1.7.7"
+}
+
+jnaerator {
+	libraryName 'rpi-ws281x'
+	packageName 'com.externalalarmclock.rpiws281x'
+	headerFiles "ws2811.h"
+}
